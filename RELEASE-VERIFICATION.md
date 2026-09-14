@@ -2,7 +2,7 @@
 
 ## Local release candidate — September 13, 2026
 
-Prepared from the supplied completed version 7 archive. The matrix UI, DecisionHandoff component, shared DecisionRecord logic, original example data, and 17 original tests are unchanged. The original visual rules are preserved; explicit Tailwind source declarations ensure utilities are emitted when building from a hidden workspace folder.
+Prepared from the supplied completed version 7 archive. The comparison matrix UI, DecisionHandoff component, shared DecisionRecord logic, original positioning example, and 17 original tests are unchanged. The System Map received its authorized post-verification release update. The original visual rules are preserved; explicit Tailwind source declarations ensure utilities are emitted when building from a hidden workspace folder.
 
 Release changes: static Next.js export with `/decision-engine` base path and matching favicon; removal of Sites, edge-worker, database, authentication, and unused starter infrastructure; MIT license; project documentation; generic/positioning examples; CI and Pages workflow; one additional Markdown regression test. No runtime decision data is included in the repository.
 
@@ -34,9 +34,11 @@ Tested the actual static output at `/decision-engine/`, using desktop (1440 × 1
 
 ## Publication status
 
-Public repository creation, GitHub-hosted checks, and public Pages verification are pending. The GitHub connector and browser were authenticated to different accounts when this candidate was prepared; repository ownership must be resolved before publishing. No public URL is claimed verified here.
+The [public repository](https://github.com/raina7sri/decision-engine) and [GitHub Pages deployment](https://raina7sri.github.io/decision-engine/) were verified. The first published source tree exactly matched the locally verified candidate. [GitHub Actions run 34793075196](https://github.com/raina7sri/decision-engine/actions/runs/34793075196) passed installation, all 18 tests, typecheck, lint, production build, artifact upload, and deployment on commit `087cd0e7d127faf13ba5e554fd81c01230e9b812`.
 
-The System Map is deliberately unchanged. Update the Decision Engine entry only after the public repository and deployment have been verified. The private Site and MOS repository were not modified.
+The public URL was opened in a browser and verified with a fictional non-GTM decision, named confirmation, and actual Markdown download. Mobile layout at 375 × 812 loaded the repository-prefixed stylesheet correctly with no page-level overflow; no browser console errors were observed.
+
+Only after that verification, the System Map Decision Engine entry changed directly from “Prototype built” to “Shipped — Open Source.” It now links both verified URLs, names the requested inputs and outputs, and preserves the explicit human/system boundaries. Other map entries, the private Site, and the MOS repository were not modified.
 
 ## Scope and limitations
 

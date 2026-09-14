@@ -1,5 +1,7 @@
 # Decision Engine
 
+[Use Decision Engine](https://raina7sri.github.io/decision-engine/) · [GitHub repository](https://github.com/raina7sri/decision-engine) · [Checks and deployment](https://github.com/raina7sri/decision-engine/actions/workflows/checks-and-pages.yml)
+
 An editable comparison matrix that makes tradeoffs inspectable and preserves the human decision behind them. Built for leaders, operators, and teams choosing among alternatives—from positioning to a fictional vendor selection. It needs no account, backend, paid model, or MOS setup.
 
 ## The problem
@@ -71,6 +73,6 @@ The default build path is `/decision-engine`, matching a project repository name
 
 ## Source and license
 
-This is a behavior-preserving transfer of the completed version 7 source, not a recreated prototype. The application logic and original tests are retained; release changes remove starter/Sites infrastructure, configure static hosting, and add documentation and automation. Release verification is recorded separately; do not infer a verified deployment from configuration alone.
+This is a behavior-preserving transfer of the completed version 7 source, not a recreated prototype. The application logic and original tests are retained; release changes remove starter/Sites infrastructure, configure static hosting, and add documentation and automation. See [release verification](RELEASE-VERIFICATION.md) for the checks, browser acceptance, and public deployment evidence.
 
 MIT licensed. Vendored third-party styles retain their own [MIT notice](vendor/shadcn-tailwind-4.13.0.LICENSE.md); dependencies retain their respective licenses.
