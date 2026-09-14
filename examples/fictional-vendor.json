@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "3.1",
+  "recordType": "DecisionRecord",
+  "id": "example-vendor-fictional",
+  "version": 2,
+  "status": "decided",
+  "provenance": {
+    "createdAt": "2026-09-13T00:00:00.000Z",
+    "updatedAt": "2026-09-13T00:00:00.000Z",
+    "source": "gtm-decision-engine",
+    "origin": "blank",
+    "template": null
+  },
+  "model": {
+    "question": "Which fictional vendor should Operations pilot?",
+    "criteria": [
+      {
+        "id": "fit",
+        "name": "Workflow fit",
+        "description": "Fits our fictional operating model",
+        "weight": 2,
+        "minimum": 6
+      },
+      {
+        "id": "ease",
+        "name": "Ease of use",
+        "description": "Usable without specialist training",
+        "weight": 1,
+        "minimum": null
+      }
+    ],
+    "options": [
+      {
+        "id": "a",
+        "name": "Vendor A",
+        "thesis": "A fictional workflow-focused option",
+        "evidenceSummary": "Synthetic example only",
+        "evidenceState": "Hypothesis",
+        "scores": {
+          "fit": {
+            "rationale": "Synthetic demonstration score, not measured evidence.",
+            "sourceReference": "Fictional evaluation worksheet",
+            "uncertainty": "Replace with real pilot observations.",
+            "value": 8
+          },
+          "ease": {
+            "rationale": "Synthetic demonstration score, not measured evidence.",
+            "sourceReference": "Fictional evaluation worksheet",
+            "uncertainty": "Replace with real pilot observations.",
+            "value": 9
+          }
+        }
+      },
+      {
+        "id": "b",
+        "name": "Vendor B",
+        "thesis": "A fictional alternative",
+        "evidenceSummary": "Synthetic example only",
+        "evidenceState": "Hypothesis",
+        "scores": {
+          "fit": {
+            "rationale": "Synthetic demonstration score, not measured evidence.",
+            "sourceReference": "Fictional evaluation worksheet",
+            "uncertainty": "Replace with real pilot observations.",
+            "value": 7
+          },
+          "ease": {
+            "rationale": "Synthetic demonstration score, not measured evidence.",
+            "sourceReference": "Fictional evaluation worksheet",
+            "uncertainty": "Replace with real pilot observations.",
+            "value": 8
+          }
+        }
+      }
+    ]
+  },
+  "decisionDraft": {
+    "selectedOptionId": "a",
+    "rationale": "In this fictional scenario, Vendor A has the stronger weighted fit. Pilot before any commitment.",
+    "tradeoffs": [
+      "Higher fictional setup effort"
+    ],
+    "assumptions": [
+      "Illustrative volumes remain stable"
+    ],
+    "constraints": [
+      "No actual purchase is authorized"
+    ],
+    "recordedBy": "Fictional operations lead",
+    "decisionRole": "Example decision owner",
+    "reviewTrigger": "Review after the fictional pilot",
+    "comparisonPrefillFingerprint": null
+  },
+  "finalDecision": {
+    "selectedOptionId": "a",
+    "rationale": "In this fictional scenario, Vendor A has the stronger weighted fit. Pilot before any commitment.",
+    "tradeoffs": [
+      "Higher fictional setup effort"
+    ],
+    "assumptions": [
+      "Illustrative volumes remain stable"
+    ],
+    "constraints": [
+      "No actual purchase is authorized"
+    ],
+    "recordedBy": "Fictional operations lead",
+    "decisionRole": "Example decision owner",
+    "reviewTrigger": "Review after the fictional pilot",
+    "comparisonPrefillFingerprint": null,
+    "selectedOptionName": "Vendor A",
+    "status": "confirmed",
+    "confirmedAt": "2026-09-13T00:00:00.000Z",
+    "comparisonFingerprint": "fnv1a-6c913a7a",
+    "attestation": {
+      "method": "human_attestation"
+    },
+    "sourceBasis": "current_weighted_comparison_plus_human_judgment"
+  },
+  "limitations": [
+    "Scores, notes, and source references are human-entered and have not been independently verified.",
+    "A final decision is a local human attestation, not an authenticated signature.",
+    "A strategic decision does not approve marketing claims, messaging, or an MOS version."
+  ]
+}

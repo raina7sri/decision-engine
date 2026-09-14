@@ -1,0 +1,319 @@
+{
+  "schemaVersion": "3.1",
+  "recordType": "DecisionRecord",
+  "id": "example-positioning-synthetic",
+  "version": 1,
+  "status": "draft",
+  "provenance": {
+    "createdAt": "2026-09-13T00:00:00.000Z",
+    "updatedAt": "2026-09-13T00:00:00.000Z",
+    "source": "gtm-decision-engine",
+    "origin": "positioning-example",
+    "template": {
+      "id": "original-positioning",
+      "name": "Original positioning example (synthetic scores)",
+      "syntheticScores": true
+    }
+  },
+  "model": {
+    "question": "Which positioning should lead the company narrative?",
+    "criteria": [
+      {
+        "id": "clarity",
+        "name": "Ease of Understanding",
+        "description": "Can the intended audience explain it quickly and accurately?",
+        "weight": 2,
+        "minimum": null
+      },
+      {
+        "id": "need",
+        "name": "Customer Needs Match",
+        "description": "Does it address a primary customer problem supported by evidence?",
+        "weight": 2,
+        "minimum": null
+      },
+      {
+        "id": "value",
+        "name": "Immediate Value Clarity",
+        "description": "Is the outcome and reason to care apparent without a long explanation?",
+        "weight": 2,
+        "minimum": null
+      },
+      {
+        "id": "durability",
+        "name": "Tech Pivot Protection",
+        "description": "Does the value remain useful as underlying AI capabilities improve?",
+        "weight": 2,
+        "minimum": null
+      },
+      {
+        "id": "discovery",
+        "name": "AEO-Friendly",
+        "description": "Does it connect to language and queries buyers use in AI search?",
+        "weight": 2,
+        "minimum": null
+      },
+      {
+        "id": "difference",
+        "name": "Unique vs. Competitors",
+        "description": "Does it create a meaningful and supportable reason to choose this option?",
+        "weight": 1,
+        "minimum": null
+      },
+      {
+        "id": "price",
+        "name": "Pricing Justification",
+        "description": "Can the promised value support the intended commercial model?",
+        "weight": 1,
+        "minimum": null
+      },
+      {
+        "id": "screenshot",
+        "name": "Marketing Screenshot",
+        "description": "Can the promise be shown clearly and credibly in a simple marketing screenshot?",
+        "weight": 1,
+        "minimum": null
+      },
+      {
+        "id": "future",
+        "name": "Future-Facing",
+        "description": "Does it leave room for intended product and market expansion?",
+        "weight": 1,
+        "minimum": null
+      },
+      {
+        "id": "partner",
+        "name": "Partner Potential",
+        "description": "Does it give relevant partners a credible reason to participate?",
+        "weight": 1,
+        "minimum": null
+      }
+    ],
+    "options": [
+      {
+        "id": "ai-visible",
+        "name": "AI-visible content",
+        "thesis": "Lead with helping B2B companies become visible, understood, and selected inside AI-generated answers.",
+        "evidenceSummary": "Synthetic example assembled to demonstrate the comparison workflow.",
+        "evidenceState": "Hypothesis",
+        "scores": {
+          "clarity": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 9
+          },
+          "need": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 9
+          },
+          "value": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 9
+          },
+          "durability": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 8
+          },
+          "discovery": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 10
+          },
+          "difference": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 8
+          },
+          "price": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 8
+          },
+          "screenshot": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 8
+          },
+          "future": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 8
+          },
+          "partner": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 8
+          }
+        }
+      },
+      {
+        "id": "branded",
+        "name": "Branded/customizable content",
+        "thesis": "Lead with producing brand-consistent content that teams can customize.",
+        "evidenceSummary": "Synthetic example assembled to demonstrate the comparison workflow.",
+        "evidenceState": "Hypothesis",
+        "scores": {
+          "clarity": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 9
+          },
+          "need": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 8
+          },
+          "value": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 7
+          },
+          "durability": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 5
+          },
+          "discovery": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 5
+          },
+          "difference": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 6
+          },
+          "price": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 7
+          },
+          "screenshot": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 7
+          },
+          "future": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 6
+          },
+          "partner": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 6
+          }
+        }
+      },
+      {
+        "id": "velocity",
+        "name": "Content velocity",
+        "thesis": "Lead with producing more content, faster, through AI-assisted execution.",
+        "evidenceSummary": "Synthetic example assembled to demonstrate the comparison workflow.",
+        "evidenceState": "Hypothesis",
+        "scores": {
+          "clarity": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 8
+          },
+          "need": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 7
+          },
+          "value": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 7
+          },
+          "durability": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 4
+          },
+          "discovery": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 6
+          },
+          "difference": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 5
+          },
+          "price": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 5
+          },
+          "screenshot": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 7
+          },
+          "future": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 7
+          },
+          "partner": {
+            "rationale": "Illustrative score only; replace with your judgment and evidence.",
+            "sourceReference": "",
+            "uncertainty": "",
+            "value": 5
+          }
+        }
+      }
+    ]
+  },
+  "decisionDraft": {
+    "selectedOptionId": "ai-visible",
+    "rationale": "The current weighted comparison recommends AI-visible content at 130 out of 150. Its strongest weighted contributions are AEO-Friendly, Ease of Understanding, Customer Needs Match. Review the evidence, tradeoffs, and assumptions before recording the human decision.",
+    "tradeoffs": [],
+    "assumptions": [],
+    "constraints": [],
+    "recordedBy": "",
+    "decisionRole": "",
+    "reviewTrigger": "",
+    "comparisonPrefillFingerprint": "fnv1a-2bf62b77"
+  },
+  "finalDecision": null,
+  "limitations": [
+    "Scores, notes, and source references are human-entered and have not been independently verified.",
+    "A final decision is a local human attestation, not an authenticated signature.",
+    "A strategic decision does not approve marketing claims, messaging, or an MOS version."
+  ]
+}
