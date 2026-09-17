@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "test": "node --experimental-strip-types --test app/decision-record.test.ts app/markdown-export.test.ts",
+    "test": "node --experimental-strip-types --test app/decision-record.test.ts app/markdown-export.test.ts app/score-presentation.test.ts",
     "typecheck": "next typegen && tsc --noEmit",
     "lint": "eslint .",
     "build": "next build --webpack"

@@ -1,5 +1,5 @@
 import { BarChart3, Eye, Layers3, MessageSquareText, Scale, Search, ShieldCheck } from "lucide-react";
-import { emptyScore, type DecisionModel } from "./decision-record";
+import { emptyScore, type DecisionModel } from "./decision-record.ts";
 
 export type StageKey = "insight"|"foundation"|"activation"|"feedback"|"scale";
 
@@ -15,6 +15,8 @@ export const blankModel = (): DecisionModel => ({
     scores: { "criterion-1": emptyScore() },
   })),
 });
+
+export const positioningProvenance = "Illustrative reconstruction of a real positioning decision structure. The criteria and weighting reflect the historical framework; example scores, rationales, and evidence are synthetic.";
 
 export const positioningModel = (): DecisionModel => {
   const criteria = [
@@ -37,9 +39,9 @@ export const positioningModel = (): DecisionModel => {
     question:"Which positioning should lead the company narrative?",
     criteria,
     options:[
-      {id:"ai-visible",name:"AI-visible content",thesis:"Lead with helping B2B companies become visible, understood, and selected inside AI-generated answers.",evidenceSummary:"Synthetic example assembled to demonstrate the comparison workflow.",evidenceState:"Hypothesis",scores:makeScores([9,9,9,8,10,8,8,8,8,8])},
-      {id:"branded",name:"Branded/customizable content",thesis:"Lead with producing brand-consistent content that teams can customize.",evidenceSummary:"Synthetic example assembled to demonstrate the comparison workflow.",evidenceState:"Hypothesis",scores:makeScores([9,8,7,5,5,6,7,7,6,6])},
-      {id:"velocity",name:"Content velocity",thesis:"Lead with producing more content, faster, through AI-assisted execution.",evidenceSummary:"Synthetic example assembled to demonstrate the comparison workflow.",evidenceState:"Hypothesis",scores:makeScores([8,7,7,4,6,5,5,7,7,5])},
+      {id:"ai-visible",name:"AI-visible content",thesis:"Lead with helping B2B companies become visible, understood, and selected inside AI-generated answers.",evidenceSummary:positioningProvenance,evidenceState:"Hypothesis",scores:makeScores([9,9,9,8,10,8,8,8,8,8])},
+      {id:"branded",name:"Branded/customizable content",thesis:"Lead with producing brand-consistent content that teams can customize.",evidenceSummary:positioningProvenance,evidenceState:"Hypothesis",scores:makeScores([9,8,7,5,5,6,7,7,6,6])},
+      {id:"velocity",name:"Content velocity",thesis:"Lead with producing more content, faster, through AI-assisted execution.",evidenceSummary:positioningProvenance,evidenceState:"Hypothesis",scores:makeScores([8,7,7,4,6,5,5,7,7,5])},
     ],
   };
 };

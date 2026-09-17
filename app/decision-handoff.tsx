@@ -4,11 +4,12 @@ import { CheckCircle2, ChevronDown, ShieldCheck, Sparkles, TriangleAlert } from 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { weightedScoreLabel } from "./score-presentation";
 import { compare, comparisonRecommendation, type DecisionDraft, type DecisionRecord } from "./decision-record";
 
 const joinLines = (values: string[]) => values.join("\n");
 const splitLines = (value: string) => value.split("\n").map(line => line.trim()).filter(Boolean);
-const formatNumber = (value: number) => Number.isInteger(value) ? String(value) : value.toFixed(1).replace(/\.0$/, "");
+
 
 export function DecisionHandoff({
   record,
@@ -48,7 +49,7 @@ export function DecisionHandoff({
           {!summary.complete && <p className="mt-1 text-sm leading-5 text-white/50">No recommendation is prepared until every score is entered. Blank remains unknown, not zero.</p>}
           {summary.complete && summary.leaders.length === 0 && <p className="mt-1 text-sm leading-5 text-white/50">No option meets every must-meet threshold. Resolve the requirement or options before recording a decision.</p>}
           {summary.hasTie && <p className="mt-1 text-sm leading-5 text-white/50">The comparison is tied between {summary.leaders.map(result => result.option.name || "Unnamed option").join(" and ")}. A human must choose and explain the tradeoff.</p>}
-          {recommendation && <p className="mt-1 text-sm leading-5 text-white/50">Suggested option: <strong className="text-white/75">{recommendation.selectedOptionName}</strong> at {formatNumber(recommendation.weightedTotal)} / {formatNumber(recommendation.maximum)}. The selection and draft rationale were populated from current scores and weights.</p>}
+          {recommendation && <p className="mt-1 text-sm leading-5 text-white/50">Suggested option: <strong className="text-white/75">{recommendation.selectedOptionName}</strong> at {weightedScoreLabel(recommendation)}. The selection and draft rationale were populated from current scores and weights.</p>}
         </div>
       </div>
     </div>

@@ -17,12 +17,13 @@ import {
 import {
   Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle,
 } from "@/components/ui/dialog";
-import { blankModel, positioningModel, stageMeta, systemTools } from "./data";
+import { blankModel, positioningModel, stageMeta, systemTools, positioningProvenance } from "./data";
 import {
   compare, confirmDecision, createDecisionRecord, decisionRecordSchema, emptyScore,
   importDecisionRecord, prepareMosAlignment, renderDecisionRecordMarkdown, syncDecisionDraftWithComparison, touchDecisionRecord,
   type DecisionDraft, type DecisionModel, type DecisionRecord, type ScoreAssessment,
 } from "./decision-record";
+import { weightedScoreLabel, weightedScoreExplanation } from "./score-presentation";
 import { DecisionHandoff } from "./decision-handoff";
 
 const ACTIVE_KEY = "gtm-decision-engine:active:v3";
@@ -192,7 +193,7 @@ export default function Home() {
     id: uid("decision"),
     now: timestamp(),
     origin: "positioning-example",
-    template: { id: "positioning-10-original", name: "Original 10-Criteria Positioning Model", syntheticScores: true },
+    template: { id: "positioning-10-original", name: "AI-visible positioning example", syntheticScores: true },
   });
   const requestReplacement = (label: string, nextRecord: DecisionRecord, message: string) => setPendingReplacement({ label, record: nextRecord, message });
   const confirmReplacement = () => {
@@ -333,9 +334,11 @@ export default function Home() {
         <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-white/8 pt-4">
           <span className="text-xs font-semibold uppercase tracking-[.12em] text-white/35">Start from</span>
           <Button size="sm" variant="ghost" onClick={() => requestReplacement("Blank decision", makeBlank(), "New blank decision opened. The prior active draft is available to restore.")} className="text-white/62 hover:bg-white/8 hover:text-white"><RotateCcw className="h-4 w-4"/>Blank</Button>
-          <Button size="sm" variant="ghost" onClick={() => requestReplacement("Positioning example", makeExample(), "Original positioning example loaded.")} className="text-white/62 hover:bg-white/8 hover:text-white"><FileJson className="h-4 w-4"/>10-criteria positioning example</Button>
+          <Button size="sm" variant="ghost" onClick={() => requestReplacement("Positioning example", makeExample(), "AI-visible positioning example loaded.")} className="text-white/62 hover:bg-white/8 hover:text-white"><FileJson className="h-4 w-4"/>AI-visible positioning example</Button>
           <span className="ml-auto text-xs text-white/35">{hydrated ? `Record v${record.version} · changes recover after refresh` : "Recovering browser draft…"}</span>
         </div>
+        <p className="mt-3 text-sm leading-6 text-white/55">The decision changes; the structure does not. Define what matters, weight the priorities, compare the options, inspect the evidence and tradeoffs, then record the human call.</p>
+        <p className="mt-2 text-xs leading-5 text-white/45">About the AI-visible positioning example: {positioningProvenance}</p>
         {notice && <p role="status" className="mt-3 rounded-lg border border-[#a78bfa]/15 bg-[#a78bfa]/7 px-3 py-2 text-sm leading-5 text-[#d5c9ff]">{notice}</p>}
       </section>
 
@@ -410,7 +413,7 @@ export default function Home() {
                 <th className="weight-column">{formatNumber(summary.totalWeight)}×</th>
                 {summary.results.map(result => <th key={result.option.id} className="score-column">
                   <span className="text-base text-[#f4cc48]">{formatNumber(result.weightedTotal)}</span>
-                  <span className="text-white/35"> / {formatNumber(result.maximum)}</span>
+                  <span className="text-white/35"> / {formatNumber(result.maximum)} · {Math.round(result.percentage)}%</span>
                   {!result.complete && <span className="mt-1 block text-xs font-normal text-white/45">partial · {Math.round(result.coverage)}% filled</span>}
                 </th>)}
                 <th className="delete-column"/>
@@ -447,8 +450,9 @@ export default function Home() {
               {!summary.complete ? <><h2 className="font-display mt-4 text-2xl font-semibold">No leader yet</h2><p className="mt-2 text-sm leading-6 text-white/55">Partial totals stay usable, but blanks are not normalized away. Enter every score before treating the comparison as ranked.</p></> : summary.leaders.length === 0 ? <><h2 className="font-display mt-4 text-2xl font-semibold">No eligible option</h2><p className="mt-2 text-sm leading-6 text-white/55">Every option misses at least one must-meet threshold. Revisit the options or the requirement.</p></> : summary.hasTie ? <><h2 className="font-display mt-4 text-2xl font-semibold">Tie at current weights</h2><p className="mt-2 text-sm leading-6 text-white/55">{summary.leaders.map(result => result.option.name || "Unnamed option").join(" and ")} share the top weighted total.</p></> : <><p className="mt-4 text-sm text-white/45">Leading at current weights</p><h2 className="font-display mt-1 text-2xl font-semibold">{summary.leaders[0].option.name || "Unnamed option"}</h2><p className="mt-2 text-sm leading-6 text-white/55">This is a deterministic comparison, not a probability of success or the final human decision.</p></>}
             </div>
             <div className="space-y-4 p-5">
+              <p className="text-sm leading-6 text-white/55">{summary.complete && summary.leaders.length === 1 ? weightedScoreExplanation(summary.leaders[0]) : "Percentages show weighted points against the full maximum for the selected criteria and weights, not a probability of commercial success. Partial totals include only entered scores."} The score structures the comparison. A named human still owns the final decision.</p>
               {summary.results.map(result => <div key={result.option.id}>
-                <div className="mb-2 flex items-center justify-between gap-3 text-sm"><span className="min-w-0 truncate text-white/72">{result.option.name || "Unnamed option"}</span><span className="font-semibold">{formatNumber(result.weightedTotal)} / {formatNumber(result.maximum)}</span></div>
+                <div className="mb-2 flex flex-wrap items-center justify-between gap-3 text-sm"><span className="min-w-0 truncate text-white/72">{result.option.name || "Unnamed option"}</span><span className="font-semibold">{weightedScoreLabel(result)}</span></div>
                 <div className="h-2 overflow-hidden rounded-full bg-white/7"><div className="h-full rounded-full bg-gradient-to-r from-[#f4cc48] to-[#a78bfa]" style={{width:`${result.percentage}%`}}/></div>
                 <p className="mt-1 text-xs text-white/42">{result.complete ? "All scores entered" : `${Math.round(result.coverage)}% of weighted criteria scored`}{result.failedMinimums.length ? ` · Fails: ${result.failedMinimums.map(item => item.name).join(", ")}` : ""}</p>
               </div>)}
